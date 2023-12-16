@@ -1,0 +1,13 @@
+---
+- name: My Teat Playbook
+  hosts: all
+  become: true
+  tasks:
+  - name: Stop httpd Service
+    service:
+      name: httpd
+      state: stopped
+  - name: Uninstall httpd package
+    yum:
+      name: httpd
+      state: removed   

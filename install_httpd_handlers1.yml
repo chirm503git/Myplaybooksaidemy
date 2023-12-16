@@ -1,0 +1,16 @@
+---
+- name: My Test Palybook
+  hosts: all
+  become: true
+  tasks:
+   - name: Httpd Install Packages
+     yum:
+      state: installed
+     notify: start apache
+  handlers:
+   - name: start apache
+     service:
+      name: httpd
+      state: started
+
+
